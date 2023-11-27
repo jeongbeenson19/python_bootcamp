@@ -22,4 +22,4 @@ for number in range(0, len(password)):
     final_password += password[pick]
     password.pop(pick)
 
-print(final_password)
+print(f"your password is {final_password}")
