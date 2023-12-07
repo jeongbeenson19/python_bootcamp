@@ -33,23 +33,28 @@ operations = {
     "*": multiply,
     "/": divide,
 }
-continuous_calc = True
 
-num1 = int(input("What is the fist number?: "))
+def calculator():
+    continuous_calc = True
+    print(logo)
+    num1 = float(input("What is the fist number?: "))
 
-while continuous_calc == True:
-    for symbol in operations:
-        print(symbol)
-    operation_symbol = input("Pick an operation from the line above: ")
-    num2 = int(input("What is the second number?: "))
+    while continuous_calc == True:
+        
+        for symbol in operations:
+            print(symbol)
+        operation_symbol = input("Pick an operation from the line above: ")
+        num2 = float(input("What is the second number?: "))
 
-    calculation_function = operations[operation_symbol]
-    answer = calculation_function(num1, num2)
+        calculation_function = operations[operation_symbol]
+        answer = calculation_function(num1, num2)
 
-    print(f"{num1} {operation_symbol} {num2} = {answer}")
+        print(f"{num1} {operation_symbol} {num2} = {answer}")
 
-    if input(f"Type 'y to continue calculating with {answer}, 'n' to exit: ") == 'y':
-        num1 = answer
-    else:
-        continuous_calc = False
+        if input(f"Type 'y to continue calculating with {answer}, 'n' to start the new calculator: ") == 'y':
+            num1 = answer
+        else:
+            continuous_calc = False
+            calculator()
 
+calculator()
