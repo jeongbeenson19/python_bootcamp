@@ -9,7 +9,7 @@ score = 0
 number = 14
 
 def clear():
-    os.system('cls')
+    os.system('clear')
     
 #난수 생성
 def make_comparsion():
@@ -37,6 +37,7 @@ def HigherLower(first_comparison, score, game_end):
         score += 1
     else:
         print(f"you are wrong, you are final score is {score}")
+        print(f"{first_comparison['name']}'s value is {first_comparison['value']} \n{comparison['name']}'s value is {comparison['value']}")
         game_end = True
     
     first_comparison = comparison
