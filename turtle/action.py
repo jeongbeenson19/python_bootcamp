@@ -67,10 +67,14 @@ class Action:
 
     def hirst_painting(self, number_of_dots):
         self.timmy_the_turtle.penup()
-        y = 0
+        self.timmy_the_turtle.rt(135)
+        self.timmy_the_turtle.forward(number_of_dots * 50 / 2)
+        self.timmy_the_turtle.lt(135)
+        x = self.timmy_the_turtle.pos()
+        y = x[1]
         for n in range(0, number_of_dots):
             for m in range(0, number_of_dots):
                 self.random_color_dot(20)
                 self.timmy_the_turtle.forward(50)
             y += 50
-            self.timmy_the_turtle.setpos(0, y)
+            self.timmy_the_turtle.setpos(x[0], y)
