@@ -34,3 +34,24 @@ class Action:
                 degrees = 360 / n
                 self.timmy_the_turtle.rt(degrees)
                 self.timmy_the_turtle.forward(length_of_each_line)
+
+    def random_walk(self, repetitions):
+        direction = [0, 90, 180, 270]
+        output = [0, 0, 0, 0]
+        self.timmy_the_turtle.pensize(5)
+        self.timmy_the_turtle.speed(20)
+        for n in range(repetitions):
+            random_input = random.randint(0, 3)
+            self.random_color()
+            output[random_input] += 1
+            self.timmy_the_turtle.rt(direction[random_input])
+            self.timmy_the_turtle.forward(10)
+        print(output)
+
+    def spirograph(self, radius, number_of_circle):
+        self.timmy_the_turtle.speed(20)
+        size_of_angle = float(360 / number_of_circle)
+        for n in range(number_of_circle):
+            self.random_color()
+            self.timmy_the_turtle.circle(radius)
+            self.timmy_the_turtle.rt(size_of_angle)
