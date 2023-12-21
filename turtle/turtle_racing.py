@@ -2,9 +2,9 @@ from turtle import Turtle, Screen
 import random
 
 
-def create_turtle(color, x, y):
+def create_turtle(colors, x, y):
     turtle = Turtle(shape='turtle')
-    turtle.color(color)
+    turtle.color(colors)
     turtle.penup()
     turtle.setpos(x, y)
     return turtle
