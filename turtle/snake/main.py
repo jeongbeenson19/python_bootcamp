@@ -31,3 +31,4 @@ while game_is_on:
         scoreboard.get_score()
 
 screen.exitonclick()
+

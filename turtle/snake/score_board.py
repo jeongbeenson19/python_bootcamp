@@ -10,3 +10,4 @@ class Scoreboard(Turtle):
 
     def get_score(self):
         self.score += 1
+
