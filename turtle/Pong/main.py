@@ -8,7 +8,7 @@ import time
 screen = Screen()
 screen.bgcolor('black')
 screen.setup(width=900, height=600)
-screen.title('Snake game')
+screen.title('Pong game')
 screen.tracer(0)
 
 paddle = Paddle((-430, 0))
