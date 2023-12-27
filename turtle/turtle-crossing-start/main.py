@@ -26,6 +26,7 @@ while game_is_on:
     for car in cars.garage:
         if user.distance(car) <= 40 and user.ycor() - car.ycor() < 9:
             game_is_on = False
+            scoreboard.game_over()
 
     # 난이도 상승 여부 감지
     if user.ycor() > 320:
