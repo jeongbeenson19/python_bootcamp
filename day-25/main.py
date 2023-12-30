@@ -1,17 +1,9 @@
-# with open('weather_data.csv', mode='r') as data:
-#     weather = data.readlines()
-#
-# print(weather)
+import pandas as pd
 
-# import csv
-#
-# with open('weather_data.csv', mode='r') as data_file:
-#     data = csv.reader(data_file)
-#     temperatures = []
-#     for row in data:
-#         if row[1] != 'temp':
-#             temperatures.append(int(row[1]))
-#     print(temperatures)
-#     print(type(temperatures[1]))
+data = pd.read_csv('2018_Central_Park_Squirrel_Census_-_Squirrel_Data.csv')
+data1 = data["Primary Fur Color"].value_counts()
 
-import pandas
+data1 = pd.DataFrame(data1)
+
+print(type(data1))
+# data1.to_csv("color_distribution.csv")
