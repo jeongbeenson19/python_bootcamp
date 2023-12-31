@@ -45,10 +45,12 @@ def detect_click(x, y):
 
     # 게임 종료 확인
     if answer_state == 'exit':
-        for state in location.state_list:
-            if state not in guessed_states:
-                guessed_state = [state[0], state[2], state[3]]
-                missing_states.append(guessed_state)
+        # for state in location.state_list:
+        #     if state not in guessed_states:
+        #         guessed_state = [state[0], state[2], state[3]]
+        #         missing_states.append(guessed_state)
+        missing_states = [[state[0], state[2], state[3]] for state in location.state_list
+                          if state not in guessed_states]
 
         # 놓친 주를 CSV 파일로 저장
         missing_states = pd.DataFrame(missing_states, columns=['state', 'x', 'y'])
@@ -63,4 +65,3 @@ screen.onscreenclick(detect_click)
 
 # 터틀 그래픽 실행
 screen.mainloop()
-
