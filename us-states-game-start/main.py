@@ -60,7 +60,7 @@ def detect_click(x, y):
         turtle.bye()
 
 
-# 클릭 이벤트 설정
+# 클릭 이벤트 설정.
 screen.onscreenclick(detect_click)
 
 # 터틀 그래픽 실행
