@@ -56,7 +56,7 @@ def detect_click(x, y):
         missing_states = pd.DataFrame(missing_states, columns=['state', 'x', 'y'])
         missing_states.to_csv('draft.csv', index=False)
 
-        # 터틀 그래픽 종료
+        # 터틀 그래픽 종료.
         turtle.bye()
 
 
