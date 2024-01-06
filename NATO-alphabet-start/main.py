@@ -12,5 +12,8 @@ for letter in user_inputs:
         if letter in row.iloc[0]:
             letter_with_code = [letter, row.iloc[1]]
             result.append(letter_with_code)
+        else:
+            raise KeyError("only letters in the alphabet please")
+
 
 print(result)
