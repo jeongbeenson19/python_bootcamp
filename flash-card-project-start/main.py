@@ -59,3 +59,4 @@ wrong.grid(row=1, column=0)
 
 timer = window.after(5000, func=show_answer)  # 5초 후에 정답을 보여주는 타이머 설정
 window.mainloop()
+
