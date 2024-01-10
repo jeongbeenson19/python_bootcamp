@@ -20,8 +20,15 @@ def button():
     card_front.delete(content)
 
     # 새로운 텍스트 추가
-    card_front.create_text(400, 150, text="Question", font=("Ariel", 40, "italic"), fill='black', tag=title)
-    card_front.create_text(400, 263, text=df.at[NUMBER, "Question"], font=("Ariel", 25, "bold"), fill='black', tag=content)
+    card_front.create_text(400, 150, text="Question", font=("Ariel", 40, "italic"), fill='black', tags=title)
+    try:
+        card_front.create_text(400, 263, text=df.at[NUMBER, "Question"], font=("Ariel", 25, "bold"), fill='black',
+                           tags=content)
+    except KeyError:
+        new_number2 = random.randint(1, len(df))
+        NUMBER = new_number2
+    else:
+        pass
     window.after(5000, func=show_answer)  # 5초 후에 정답을 보여주는 타이머 설정
 
 
@@ -32,9 +39,11 @@ def show_answer():
     card_front.delete(content)
 
     # 새로운 텍스트 추가
-    card_front.create_text(400, 150, text="Answer", font=("Ariel", 40, "italic"), fill='black', tag=title)
-    card_front.create_text(400, 263, text=df.at[NUMBER, "Answer"], font=("Ariel", 25, "bold"), fill='black', tag=content)
+    card_front.create_text(400, 150, text="Answer", font=("Ariel", 40, "italic"), fill='black', tags=title)
+    card_front.create_text(400, 263, text=df.at[NUMBER, "Answer"], font=("Ariel", 25, "bold"), fill='black',
+                           tags=content)
     df.drop(NUMBER, inplace=True)
+    df.to_csv('quiz_left.csv', index=False)
 
 
 window = tk.Tk()
@@ -46,11 +55,18 @@ card_front_img = tk.PhotoImage(file='images/card_front.png')
 card_back_img = tk.PhotoImage(file='./images/card_back.png')
 background = card_front.create_image(400, 263, image=card_front_img)
 title = card_front.create_text(400, 150, text="Question", font=("Ariel", 40, "italic"), fill='black')
-content = card_front.create_text(400, 263, text=df.at[NUMBER, "Question"], font=("Ariel", 25, "bold"), fill='black')
+try:
+    content = card_front.create_text(400, 263, text=df.at[NUMBER, "Question"], font=("Ariel", 25, "bold"), fill='black')
+except KeyError:
+    new_number = random.randint(1, len(df))
+    NUMBER = new_number
+else:
+    pass
 card_front.grid(column=0, row=0, columnspan=2)
 
 right_img = tk.PhotoImage(file='images/right.png')
-right = tk.Button(width=100, height=100, command=button, bg=BACKGROUND_COLOR, image=right_img, borderwidth=0, highlightthickness=0)
+right = tk.Button(width=100, height=100, command=button, bg=BACKGROUND_COLOR, image=right_img, borderwidth=0,
+                  highlightthickness=0)
 right.grid(row=1, column=1)
 
 wrong_img = tk.PhotoImage(file='images/wrong.png')
@@ -59,4 +75,3 @@ wrong.grid(row=1, column=0)
 
 timer = window.after(5000, func=show_answer)  # 5초 후에 정답을 보여주는 타이머 설정
 window.mainloop()
-
