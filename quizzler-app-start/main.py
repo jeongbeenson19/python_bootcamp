@@ -1,11 +1,8 @@
 from question_model import Question
 from quiz_brain import QuizBrain
 from ui import QuizInterface
-import requests
+from data import data
 
-response = requests.get("https://opentdb.com/api.php?amount=10&type=boolean")
-response.raise_for_status()
-data = response.json()
 question_data = data["results"]
 
 question_bank = []
