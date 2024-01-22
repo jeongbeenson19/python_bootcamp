@@ -11,13 +11,13 @@ HEIGHT_CM = "192"
 AGE = "22"
 exercise_text = "i swam for a hour"
 
-headers = {
+x_headers = {
     "Content-Type": "application/json",
     "x-app-id": NUTRITIONIX_APP_ID,
     "x-app-key": NUTRITIONIX_API_KEY,
 }
 
-parameters = {
+x_parameters = {
     "query": exercise_text,
     "gender": GENDER,
     "weight_kg": WEIGHT_KG,
@@ -25,11 +25,20 @@ parameters = {
     "age": AGE
 }
 
-response = requests.post(url=NUTRITIONIX_ENDPOINT_EXERCISE, json=parameters, headers=headers)
+x_response = requests.post(url=NUTRITIONIX_ENDPOINT_EXERCISE, json=x_parameters, headers=x_headers)
 
 # 응답 확인
-if response.status_code == 200:
+if x_response.status_code == 200:
     print("Success!")
-    print(response.json())
+    print(x_response.json())
 else:
-    print(f"Failed with status code {response.status_code}: {response.text}")
+    print(f"Failed with status code {x_response.status_code}: {x_response.text}")
+
+# sheety_endpoints = "https://api.sheety.co/0e7fc498f0d5c4910a8153572760bad3/myWorksout의 사본/시트1"
+# }
+#
+# data = {
+#
+# }
+#
+# sheety_response = requests.post(url=sheety_endpoints,)
