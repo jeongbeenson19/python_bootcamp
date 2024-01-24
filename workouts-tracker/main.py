@@ -66,6 +66,5 @@ for exercise in x_data["exercises"]:
         }
     }
 
-
     sheety_response = requests.post(url=SHEETY_ENDPOINT, json=sheet_inputs, headers=sheety_headers)
     print(sheety_response.text)
