@@ -8,9 +8,6 @@ from bs4 import BeautifulSoup
 scope = "playlist-modify-private"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(scope=scope))
 
-SPOTIPY_CLIENT_ID = os.environ.get("SPOTIPY_CLIENT_ID")
-SPOTIPY_CLIENT_SECRET = os.environ.get("SPOTIPY_SECRET")
-
 date = input("YYYY-MM-DD: ")
 URL = f"https://www.billboard.com/charts/hot-100/{date}/"
 
