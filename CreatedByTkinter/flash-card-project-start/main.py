@@ -52,7 +52,7 @@ window.config(padx=50, pady=50, bg=BACKGROUND_COLOR)
 
 card_front = tk.Canvas(width=800, height=526, bg=BACKGROUND_COLOR, highlightthickness=0)
 card_front_img = tk.PhotoImage(file='images/card_front.png')
-card_back_img = tk.PhotoImage(file='./images/card_back.png')
+card_back_img = tk.PhotoImage(file='images/card_back.png')
 background = card_front.create_image(400, 263, image=card_front_img)
 title = card_front.create_text(400, 150, text="Question", font=("Ariel", 40, "italic"), fill='black')
 try:
