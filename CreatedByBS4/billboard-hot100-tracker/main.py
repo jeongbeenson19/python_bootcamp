@@ -1,5 +1,4 @@
 import requests
-import os
 import re
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
@@ -47,5 +46,4 @@ for track_name, artist_name in zip(title_data, artists_data):
         uri = results['tracks']['items'][0]['uri']
         uri_list.append(uri)
 
-sp.user_playlist_replace_tracks(user="spotify:user:317jzzue725srbuwuxvyr5ku2rx4",
-                                playlist_id="spotify:playlist:1gHloKPhVOc3YMIS9Vgnhv", tracks=uri_list)
+sp.playlist_replace_items(playlist_id="spotify:playlist:1gHloKPhVOc3YMIS9Vgnhv", items=uri_list)
