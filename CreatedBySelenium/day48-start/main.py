@@ -5,10 +5,21 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_experimental_option("detach", True)
 
 driver = webdriver.Chrome(options=chrome_options)
-driver.get("https://www.coupang.com/vp/products/5071892418?itemId=18226192789&vendorItemId=86532415890&q=%EC%A0%9C%EB"
-           "%A1%9C%EC%BD%9C%EB%9D%BC&itemsCount=36&searchId=4fcf19dd9f3c47c191d41acc0b6cf40f&rank=6&isAddedCart=")
+driver.get("https://www.python.org/")
 
-price = driver.find_element(By.CLASS_NAME, value="unit-price")
-print(price.text)
+event_dict = {}
+event_list = []
+target = driver.find_element(By.XPATH, value='//*[@id="content"]/div/section/div[2]/div[2]/div/ul')
+date = target.find_elements(By.TAG_NAME, value='time')
+event = target.find_elements(By.TAG_NAME, value='a')
 
+for date, event in zip(date, event):
+    plan = {'time': date.text, 'event': event.text}
+    event_list.append(plan)
+
+for idx, event in enumerate(event_list):
+    event_dict[idx] = event
+
+
+print(event_dict)
 driver.quit()
